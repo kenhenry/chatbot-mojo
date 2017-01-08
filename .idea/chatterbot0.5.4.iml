@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://C:/Strawberry/perl/site/lib/MSWin32-x64-multi-thread" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://C:/Strawberry/perl/site/lib/MSWin32-x64-multi-thread" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://C:/Strawberry/perl/site/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://C:/Strawberry/perl/site/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://C:/Strawberry/perl/vendor/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://C:/Strawberry/perl/vendor/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://C:/Strawberry/perl/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://C:/Strawberry/perl/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+  </component>
+</module>
