@@ -37,13 +37,19 @@ while True:
     print(reply)
     # time.sleep(7)
 
-    if "[语音]" or "[图片]" in reply:
+    if "[语音]" in reply:
+        # has_word = True
+        content = bot.get_response(content)
+        content = str(content)
+    if "[图片]" in reply:
         # has_word = True
         content = bot.get_response(content)
         content = str(content)
     else:
         content = bot.get_response(reply)    # 剔除 语音 图片
         content = str(content)
+    print('Ken:'+content)
+    t.sleep(2)
 
 
     print('Ken:'+content)
