@@ -1,0 +1,66 @@
+# -*- coding: utf-8 -*-
+from chatterbot import ChatBot
+import logging
+import requests
+import time as t
+
+# Uncomment the following line to enable verbose logging
+# logging.basicConfig(level=logging.INFO)
+
+# Create a new ChatBot instance
+bot = ChatBot('Ken',
+    storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
+    logic_adapters=[
+        'chatterbot.logic.BestMatch'
+    ],
+    filters=[
+        'chatterbot.filters.RepetitiveResponseFilter'
+    ],
+    database='chatterbot-database'
+)
+
+print('Type something to begin...')
+
+content = '我又来了'
+while True:
+    tu_lin_url = "http://www.tuling123.com/openapi/api?key=28deb3371d214504aa1de28886b08418&info="+content #tu
+    content = requests.get(tu_lin_url, timeout=30).json()
+    content = content["text"]
+    print('tu:'+content)
+    t.sleep(2)
+
+    weixin_url = "http://127.0.0.1:3000/openwx/consult?account=xiaoice-ms&content=" + content  # ms-xiaoice xiaoirobot
+    reply = requests.get(weixin_url, timeout=50).json()
+
+    reply = reply["reply"]
+    print("小冰："),
+    print(reply)
+    # time.sleep(7)
+
+    if "[语音]" or "[图片]" in reply:
+        # has_word = True
+        content = bot.get_response(content)
+        content = str(content)
+    else:
+        content = bot.get_response(reply)    # 剔除 语音 图片
+        content = str(content)
+
+
+    print('Ken:'+content)
+    t.sleep(2)
+
+    # tu_lin_url = "http://api.qingyunke.com/api.php?key=free&appid=0&msg="+content #云
+    # content = requests.get(tu_lin_url, timeout=50).json()
+    # content = content["content"]
+    # print('云:'+content)
+    # t.sleep(2)
+
+    # content = "http://i.itpk.cn/api.php?api_key=b91eb483fce9f245bf4769b764611ddb&" \
+    #             "api_secret=ad402p9evmlp&limit=8&question="+content
+    # content = requests.get(tu_lin_url, timeout=30).json()   # ITPK茉莉
+    # # print(content)
+    # content = content["text"]
+    # print('茉莉:' + content)
+    # t.sleep(2)
+
+
